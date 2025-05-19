@@ -11,10 +11,12 @@ export const App = () => {
     setQuery(e.target.value);
   };
 
+  const normilizedQuery = query.trim().toLowerCase();
+
   const visibleMovies = moviesFromServer.filter(
     movie =>
-      movie.title.toLowerCase().includes(query.trim().toLowerCase()) ||
-      movie.description.toLowerCase().includes(query.trim().toLowerCase()),
+      movie.title.toLowerCase().includes(normilizedQuery) ||
+      movie.description.toLowerCase().includes(normilizedQuery),
   );
 
   return (
